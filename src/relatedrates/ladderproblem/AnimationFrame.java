@@ -40,7 +40,7 @@ public class AnimationFrame extends JFrame implements ActionListener, ChangeList
 	public AnimationFrame() {
 		super("Related Rates Project - Ladder Problem");
 
-		this.setSize(500, 725);
+		this.setSize(600, 725);
 		this.setLocationRelativeTo(null);
 		this.setLocation(this.getX() - this.getWidth() / 2, this.getY());
 		this.setResizable(false);
@@ -136,8 +136,9 @@ public class AnimationFrame extends JFrame implements ActionListener, ChangeList
 			thread.start();
 		}
 		if (e.getSource().equals(this.resetAnimation)) {
-			if(this.animating)
+			if(this.animating) {
 				this.animating = false;
+			}
 			
 			this.startAnimation.setEnabled(true);
 			this.stopAnimation.setEnabled(false);
