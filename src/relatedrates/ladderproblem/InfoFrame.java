@@ -24,18 +24,18 @@ public class InfoFrame extends JFrame {
 		this.setLocation(parent.getX() + parent.getWidth() - 13, parent.getY());
 		this.setResizable(false);
 		
-		this.infoArea = new JEditorPane();
-		this.infoArea.setSize(new Dimension(500, 725));
-		this.infoArea.setPreferredSize(new Dimension(500, 725));
-		this.infoArea.setEditable(false);
-		this.setupInfoArea();
-		this.add(this.infoScrollPane);
+		this.setupAndAddInfoArea();
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 	}
 
-	private void setupInfoArea() {
+	private void setupAndAddInfoArea() {
+		this.infoArea = new JEditorPane();
+		this.infoArea.setSize(new Dimension(500, 725));
+		this.infoArea.setPreferredSize(new Dimension(500, 725));
+		this.infoArea.setEditable(false);
+		
 		this.helpDocument = this.getClass().getClassLoader().getResource("assets/info.html");
 		
 		if (this.helpDocument != null) {
@@ -51,6 +51,7 @@ public class InfoFrame extends JFrame {
 		this.infoScrollPane = new JScrollPane(this.infoArea);
 		this.infoScrollPane.setVerticalScrollBarPolicy(
 		                JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		this.add(this.infoScrollPane);
 	}
 
 }
