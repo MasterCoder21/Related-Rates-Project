@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <body>
+        <h1>Related Rates Project - Ladder Problem</h1>
+        <h3>Made by Morgan Hinz (P3) and Aaron Guo (P8)</h3>
+        <hr>
+        <h3>The Scenario:</h3>
+        <p>A 202-foot long steel beam is being slid up the side of a building by a crane (It starts on the ground).  The height of the left end of the beam off the ground increases at a steady rate of 2 feet per second.  How fast is the distance between the building and the right end of the beam changing after 20 seconds of movement?</p>
+        <br>
+        <h3>Solving the Problem:</h3>
+        <ol>
+            <li>Considering the problem as a triangle, X is the horizontal leg (against the ground), Y is the vertical leg (against the building), and the hypotenuse doesn't need a letter variable assigned to it.</li>
+            <li>We're given the initial X value, which is 202, and (dy/dt), which is 2 ft/sec.</li>
+            <li>We'll relate X and Y with the Pythagorean Theorem, a^2 + b^2 = c^2.  This gives us the equation: x^2 + y^2 = 202^2</li>
+            <li>Next, we take the derivative with respect to T (time), and our derivative is 2x(dx/dt) + 2y(dy/dt) = 0</li>
+            <li>We can substitute 2 for (dy/dt) => 2x(dx/dt) + 4y = 0</li>
+            <li>Rearrange => (dx/dt) = -2y/x</li>
+            <li>We need to know the lengths of both the legs after 10 seconds.  Because Y increases at 2 ft/sec, Y will be 40 ft after 20 seconds.  Plugging this into our Pythagorean formula from the beginning, we get that X will be 198 feet after 20 seconds.</li>
+            <li>We can now plug these values into our simplified derivative: (dx/dt) = (-2(40)/198)</li>
+            <li>Simplifying this gets us the rate we want: (dx/dt) = -40/99 ft/sec</li>
+        </ol>
+        <hr>
+        <h3>How do I use this animation?</h3>
+        <ul>
+            <li>
+                <strong>Start Animation, Restart Animation, Reset Animation, and Stop Animation</strong>
+                <ul>
+                    <li>Start Animation: Start the animation from where it stopped last.</li>
+                    <li>Restart Animation: Resets the animation (and then starts the animation if it had stopped)</li>
+                    <li>Reset Animation: Reset the frame count & current height of the metal beam</li>
+                    <li>Stop Animation: Pauses the animation (does not reset anything)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Prev. Frame & Next Frame</strong>
+                <ul>
+                    <li>Prev. Frame: Go back one frame</li>
+                    <li>Next Frame: Go forward one frame</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Animation Delay</strong>
+                <ul>
+                    <li>Changing this amount will make the time between frames slower or faster, slowing down or speeding up the animation.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Frames Count</strong>
+                <ul>
+                    <li>You may enter a value between 1,000 and 5,000 (inclusive).  This value determines how many frames the animation goes through in each cycle.  Setting this to a higher amount could potentially make the animation smoother (less choppy).</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+</html>
