@@ -31,12 +31,6 @@ public class AnimationPanel extends JPanel {
 	
 	private final int offset = 200;
 	
-	/*
-	private long timer = 0;
-	private boolean timerOn = false;
-	private boolean firstTime = true;
-	*/
-
 	private BufferedImage crane;
 
 	public AnimationPanel() {
@@ -50,22 +44,6 @@ public class AnimationPanel extends JPanel {
 		
 		System.out.println(this.HEIGHT_PER_FRAME);
 	}
-	
-	/*
-	public void setTimer(boolean enabled, boolean restart) {
-		this.timerOn = enabled;
-		if(restart || this.firstTime) {
-			if(this.timerOn) {
-				this.timer = System.currentTimeMillis();
-			}
-			else {
-				this.timer = 0;
-			}
-			this.firstTime = false;
-		}
-		this.repaint();
-	}
-	*/
 
 	public void update(int direction) {
 		this.frames += direction;
@@ -105,12 +83,6 @@ public class AnimationPanel extends JPanel {
 		g.fillRect(1, this.getHeight() - 50, this.getWidth() - 1, 2);
 		g.setFont(g.getFont().deriveFont(Font.BOLD));
 		((Graphics2D) (g)).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		/*
-		g.drawString("Frames: " + this.frames + (this.timerOn ? "   Time: " + ((System.currentTimeMillis() - this.timer) / offset0) % 60 : "") + "   Delay: " + this.animationSpeed + " ms",
-				this.getWidth() / 2 - g.getFontMetrics()
-						.stringWidth("Frames: " + this.frames + (this.timerOn ? "   Time: " + ((System.currentTimeMillis() - this.timer) / offset0) % 60 : "") + "   Delay: " + this.animationSpeed + " ms") / 2,
-				this.getHeight() - 4 - g.getFontMetrics().getHeight());
-				*/
 		g.drawString("Frames: " + this.frames + "   Delay: " + this.animationSpeed + " ms",
 				this.getWidth() / 2 - g.getFontMetrics()
 						.stringWidth("Frames: " + this.frames + "   Delay: " + this.animationSpeed + " ms") / 2,
@@ -133,15 +105,9 @@ public class AnimationPanel extends JPanel {
 		// g.drawLine(offset + 42, 0, offset + 42, this.getHeight() - 50); // 167
 		// g.drawLine(0, (int) this.getHeightAtCraneRope(), this.getWidth(), (int) this.getHeightAtCraneRope());
 		
-		/*
-		// Draw box
-		g.drawLine(offset, (int) (this.getHeight() - 50 - height), this.getWidth(),
-				(int) (this.getHeight() - 50 - height));
-				*/
 		// Draw triangle
 		double otherLeg = this.calculateOtherLeg();
 		g.setColor(Color.red);
-		// g.drawLine(offset, this.getHeight() - 50, offset, (int) (this.getHeight() - 50 - height));
 		final Stroke prevStroke = ((Graphics2D) (g)).getStroke();
 		((Graphics2D) (g)).setStroke(new BasicStroke(3));
 		if(height < HEIGHT_MAX)
@@ -149,8 +115,10 @@ public class AnimationPanel extends JPanel {
 		else
 			g.drawLine(offset, (int) (this.getHeight() - 50 - height), (int) (offset), (int) (this.getHeight() - 50 - (height - HEIGHT_MAX)));
 		((Graphics2D) (g)).setStroke(prevStroke);
+		
+		// These are the other lines of the triangle (only need the hypotenuse)
+		// g.drawLine(offset, this.getHeight() - 50, offset, (int) (this.getHeight() - 50 - height));
 		// g.drawLine(offset, this.getHeight() - 50, (int) (offset + otherLeg), this.getHeight() - 50);
-
 	}
 	
 	private double calculateOtherLeg() {

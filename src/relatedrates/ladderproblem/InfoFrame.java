@@ -20,7 +20,6 @@ public class InfoFrame extends JFrame {
 		super("Related Rates Project - Ladder Problem");
 
 		this.setSize(600, 725);
-		// this.setLocationRelativeTo(parent);
 		this.setLocation(parent.getX() + parent.getWidth() - 13, parent.getY());
 		this.setResizable(false);
 		
