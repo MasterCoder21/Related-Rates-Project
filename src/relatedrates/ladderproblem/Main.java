@@ -17,8 +17,8 @@ public class Main {
             UIManager.setLookAndFeel(new FlatLightLaf());
         } catch (Exception e) {
         	System.err.println("Could not set look and feel for the application");
-        }
-		
+		}
+
 		new InfoFrame(new AnimationFrame());
 	}
 

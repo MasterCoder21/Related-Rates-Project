@@ -76,7 +76,6 @@ public class AnimationFrame extends JFrame implements ActionListener, ChangeList
 				this.animationSpeedSlider = new JSlider(JSlider.HORIZONTAL, 0, 50, this.animationSpeed));
 		this.animationSpeedSlider.setMajorTickSpacing(5);
 		this.animationSpeedSlider.setMinorTickSpacing(1);
-		// this.animationSpeed.setPaintTicks(true);
 		this.animationSpeedSlider.setPaintLabels(true);
 		this.animationSpeedSlider.addChangeListener(this);
 		final JLabel label2 = new JLabel("Frames Count");
@@ -113,7 +112,6 @@ public class AnimationFrame extends JFrame implements ActionListener, ChangeList
 			this.nextFrame.setEnabled(false);
 			this.framesCountBox.setEnabled(false);
 			this.animating = true;
-			// this.animationPanel.setTimer(true, false);
 			Thread thread = new Thread(this);
 			thread.start();
 		}
@@ -130,16 +128,15 @@ public class AnimationFrame extends JFrame implements ActionListener, ChangeList
 			this.nextFrame.setEnabled(false);
 			this.framesCountBox.setEnabled(false);
 			this.animating = true;
-			// this.animationPanel.setTimer(true, true);
 			this.animationPanel.resetFrames();
 			Thread thread = new Thread(this);
 			thread.start();
 		}
 		if (e.getSource().equals(this.resetAnimation)) {
-			if(this.animating) {
+			if (this.animating) {
 				this.animating = false;
 			}
-			
+
 			this.startAnimation.setEnabled(true);
 			this.stopAnimation.setEnabled(false);
 			this.previousFrame.setEnabled(true);
@@ -153,7 +150,6 @@ public class AnimationFrame extends JFrame implements ActionListener, ChangeList
 			this.previousFrame.setEnabled(true);
 			this.nextFrame.setEnabled(true);
 			this.framesCountBox.setEnabled(true);
-			// this.animationPanel.setTimer(false, false);
 			this.animating = false;
 		}
 		if (e.getSource().equals(this.previousFrame)) {
@@ -177,11 +173,6 @@ public class AnimationFrame extends JFrame implements ActionListener, ChangeList
 	}
 
 	@Override
-	public void keyTyped(KeyEvent e) {
-
-	}
-
-	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getSource().equals(this.framesCountBox)) {
 			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -191,8 +182,13 @@ public class AnimationFrame extends JFrame implements ActionListener, ChangeList
 	}
 
 	@Override
+	@Unused
 	public void keyReleased(KeyEvent e) {
+	}
 
+	@Override
+	@Unused
+	public void keyTyped(KeyEvent e) {
 	}
 
 }
